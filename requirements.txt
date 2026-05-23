@@ -1,7 +1,7 @@
-fastapi 
-uvicorn 
-supabase 
-passlib[bcrypt] 
-pyjwt 
-python-multipart 
-"pydantic[email]" 
+fastapi
+uvicorn
+supabase
+passlib[bcrypt]
+pyjwt
+python-multipart
+pydantic[email]
