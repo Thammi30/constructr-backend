@@ -1,3 +1,4 @@
+import os
 """
 Constructr Backend — FastAPI + Supabase
 Run: uvicorn main:app --reload
@@ -15,8 +16,8 @@ from datetime import datetime, timedelta
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-SUPABASE_URL = "https://ssiatqrwukmbnbpqhzpd.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNzaWF0cXJ3dWttYm5icHFoenBkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MjAwNzQsImV4cCI6MjA5NTA5NjA3NH0.WedxRZZgYNtfyAckns-2-7GOhER8B9II7lONK6uWHss"
+SUPABASE_URL = os.getenv("SUPABASE_URL", "https://ssiatqrwukmbnbpqhzpd.supabase.co")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNzaWF0cXJ3dWttYm5icHFoenBkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MjAwNzQsImV4cCI6MjA5NTA5NjA3NH0.WedxRZZgYNtfyAckns-2-7GOhER8B9II7lONK6uWHss")
 JWT_SECRET = "constructr-secret-key-change-in-production"
 JWT_ALGORITHM = "HS256"
 JWT_EXPIRY_HOURS = 72
@@ -30,8 +31,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://constructr.vercel.app/",
-        "https://*.vercel.app",
+        "https://constructr.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
